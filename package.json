@@ -1,24 +1,24 @@
 {
-  "name": "gosling",
-  "version": "1.0.0",
-  "description": "A starter theme with ACF and TailwindCSS",
-  "main": "index.php",
-  "scripts": {
+	"name": "gosling",
+	"version": "1.0.0",
+	"description": "A starter theme with ACF and TailwindCSS",
+	"main": "index.php",
+	"scripts": {
 		"build": "cross-env NODE_ENV=production webpack --mode production --progress",
 		"dev": "cross-env NODE_ENV=development webpack --watch --mode development --progress",
 		"clean": "rm -rf build/*"
 	},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/onebadgoose/gosling.git"
-  },
-  "keywords": [
-    "wordpress",
-    "starter",
-    "theme"
-  ],
-  "author": "One Bad Goose LLC",
-  "license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/onebadgoose/gosling.git"
+	},
+	"keywords": [
+		"wordpress",
+		"starter",
+		"theme"
+	],
+	"author": "One Bad Goose LLC",
+	"license": "ISC",
 	"devDependencies": {
 		"@babel/core": "^7.11.1",
 		"@babel/preset-env": "^7.11.0",
