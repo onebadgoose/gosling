@@ -2,8 +2,12 @@ This is a starter template for Themes ideally using ACF and TailwindCSS for rapi
 
 Changes will hopefully be tracked below. 
 
+
+Installation
+
+1. Run "npm install"
+2. Run this to set environment "NODE_ENV="development" ; TAILWIND_MODE="watch""
+
+
 Helpful Commands:
 
-npm run build   :   Builds for production
-npm run dev     :   Builds for development and starts a watch command to recompile files
-npm run clean   :   Removes the build folder so you can restart if need be
