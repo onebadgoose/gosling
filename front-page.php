@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-
+<!-- The Front Page, replace me as you like -->
 <section class="text-gray-600 body-font">
     <div class="container flex flex-col items-center justify-center h-screen px-5 py-24 mx-auto">
         <div class="relative w-48 h-48 my-8 md:h-64 md:w-64 md:mt-0">
