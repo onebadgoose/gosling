@@ -12,7 +12,7 @@
   "devDependencies": {},
   "scripts": {
     "watch": "npx postcss ./assets/src/main.css -o ./assets/css/main.css --watch",
-    "build": "npx postcss ./assets/src/main.css -o ./assets/css/main.css --watch",
+    "build": "npx postcss ./assets/src/main.css -o ./assets/css/main.css",
     "zip": "git archive --format zip --output C:\\Users\\{your_user_name}\\Desktop\\{your_theme_name}.zip main"
   },
   "repository": {
