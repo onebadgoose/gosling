@@ -1,12 +1,8 @@
 module.exports = {
 	mode: 'jit',
 	content: [
-		'./src/**/*.php',
-		'./template-parts/**/*.php',
 		'./*.php',
-		'./inc/**/*.php',
-		'./inc/*.php',
-		'./src/**/*.js',
+		'./**/*.php'
 	],
 	theme: {
 		extend: {},
