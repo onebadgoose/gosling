@@ -1,25 +1,109 @@
 <?php
 
-const GOSLING_THEME_VERSION = 1.0;
+/**
+ * Theme setup.
+ */
+function goose_theme_setup() {
+	add_theme_support( 'title-tag' );
 
-// Enqueue Tailwind CSS
-add_action( 'wp_enqueue_scripts', 'enqueue_function', 10 );
-function enqueue_function() {
-	$version = ( wp_get_environment_type() === 'development' ) ? time() : GOSLING_THEME_VERSION;
-	wp_enqueue_style( 'tailwind', get_template_directory_uri() . '/assets/css/main.css', $version, true );
+	register_nav_menus(
+		array(
+			'primary' => __( 'Primary Menu', 'tailpress' ),
+		)
+	);
+
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+
+    add_theme_support( 'custom-logo' );
+	add_theme_support( 'post-thumbnails' );
+
+	add_theme_support( 'align-wide' );
+	add_theme_support( 'wp-block-styles' );
+
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'css/editor-style.css' );
 }
 
+add_action( 'after_setup_theme', 'goose_theme_setup' );
 
-// Add site functions for ACF
-if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_page();
-	
+/**
+ * Enqueue theme assets.
+ */
+function goose_theme_enqueue_scripts() {
+	$theme = wp_get_theme();
+
+	wp_enqueue_style( 'tailpress', goose_theme_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) );
+	wp_enqueue_script( 'tailpress', goose_theme_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) );
 }
 
-// Removes the 28px admin bar bump when signed in
-add_action('get_header', 'my_filter_head');
+add_action( 'wp_enqueue_scripts', 'goose_theme_enqueue_scripts' );
 
-function my_filter_head() {
-  remove_action('wp_head', '_admin_bar_bump_cb');
+/**
+ * Get asset path.
+ *
+ * @param string  $path Path to asset.
+ *
+ * @return string
+ */
+function goose_theme_asset( $path ) {
+	if ( wp_get_environment_type() === 'production' ) {
+		return get_stylesheet_directory_uri() . '/' . $path;
+	}
+
+	return add_query_arg( 'time', time(),  get_stylesheet_directory_uri() . '/' . $path );
 }
+
+/**
+ * Adds option 'li_class' to 'wp_nav_menu'.
+ *
+ * @param string  $classes String of classes.
+ * @param mixed   $item The current item.
+ * @param WP_Term $args Holds the nav menu arguments.
+ *
+ * @return array
+ */
+function goose_theme_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
+	if ( isset( $args->li_class ) ) {
+		$classes[] = $args->li_class;
+	}
+
+	if ( isset( $args->{"li_class_$depth"} ) ) {
+		$classes[] = $args->{"li_class_$depth"};
+	}
+
+	return $classes;
+}
+
+add_filter( 'nav_menu_css_class', 'goose_theme_nav_menu_add_li_class', 10, 4 );
+
+/**
+ * Adds option 'submenu_class' to 'wp_nav_menu'.
+ *
+ * @param string  $classes String of classes.
+ * @param mixed   $item The current item.
+ * @param WP_Term $args Holds the nav menu arguments.
+ *
+ * @return array
+ */
+function goose_theme_nav_menu_add_submenu_class( $classes, $args, $depth ) {
+	if ( isset( $args->submenu_class ) ) {
+		$classes[] = $args->submenu_class;
+	}
+
+	if ( isset( $args->{"submenu_class_$depth"} ) ) {
+		$classes[] = $args->{"submenu_class_$depth"};
+	}
+
+	return $classes;
+}
+
+add_filter( 'nav_menu_submenu_css_class', 'goose_theme_nav_menu_add_submenu_class', 10, 3 );

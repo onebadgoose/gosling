@@ -1,33 +1,34 @@
 {
-  "name": "gosling",
-  "version": "1.0.0",
-  "description": "A starter Theme from One Bad Goose for TailwindCSS and ACF Block Development",
-  "main": "index.php",
-  "dependencies": {
-    "autoprefixer": "^10.4.4",
-    "postcss": "^8.4.12",
-    "postcss-cli": "^9.1.0",
-    "tailwindcss": "^3.0.23"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.4"
-  },
-  "scripts": {
-    "watch": "npx postcss ./assets/src/main.css -o ./assets/css/main.css --watch",
-    "build": "npx postcss ./assets/src/main.css -o ./assets/css/main.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/onebadgoose/gosling.git"
-  },
-  "keywords": [
-    "Wordpress",
-    "Tailwind"
-  ],
-  "author": "One Bad Goose LLC",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/onebadgoose/gosling/issues"
-  },
-  "homepage": "https://github.com/onebadgoose/gosling#readme"
+	"name": "goose-theme",
+	"version": "0.1.0",
+	"description": "Boilerplate WordPress theme with Tailwind CSS.",
+	"author": "Jeffrey van Rossum",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/username/goose-theme"
+	},
+	"theme_uri": "https://github.com/username/goose-theme",
+	"author_uri": "https://vanrossum.dev",
+	"text_domain": "goose-theme",
+	"license": "MIT",
+	"scripts": {
+		"dev": "mix",
+		"watch": "mix watch",
+		"watch-poll": "mix watch -- --watch-options-poll=1000",
+		"hot": "mix watch --hot",
+		"production": "mix --production"
+	},
+	"devDependencies": {
+		"@jeffreyvr/tailwindcss-tailpress": "^2.0.0",
+		"autoprefixer": "^10.4.0",
+		"browser-sync": "^2.26.14",
+		"cross-env": "^6.0.3",
+		"laravel-mix": "^6.0.29",
+		"postcss": "^8.2.10",
+		"postcss-import": "^14.0.0",
+		"postcss-nested": "^5.0.3",
+		"postcss-nested-ancestors": "^3.0.0",
+		"resolve-url-loader": "^3.1.2",
+		"tailwindcss": "^3.2.0"
+	}
 }
