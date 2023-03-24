@@ -18,12 +18,21 @@ mix.postCss("resources/css/app.css", "css");
 
 mix.postCss("resources/css/editor-style.css", "css");
 
-// mix.browserSync({
-//     proxy: 'http://tailpress.test',
-//     host: 'tailpress.test',
-//     open: 'external',
-//     port: 8000
-// });
+const domain = 'tailwind.test'; // <= EDIT THIS
+const homedir = require('os').homedir();
+
+// The mix script:
+mix.browserSync({
+    watch: true,
+    proxy: 'https://' + domain,
+    host: domain,
+    open: 'external',
+    https: {
+      key: homedir + '/.config/valet/Certificates/' + domain + '.key',
+      cert: homedir + '/.config/valet/Certificates/' + domain + '.crt'
+    },
+    notify: true, //Enable or disable notifications
+})
 
 if (mix.inProduction()) {
     mix.version();
