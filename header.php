@@ -13,20 +13,20 @@
 
 <?php do_action( 'goose_theme_site_before' ); ?>
 
-<div id="page" class="min-h-screen flex flex-col">
+<div id="page" class="flex flex-col min-h-screen">
 
 	<?php do_action( 'goose_theme_header' ); ?>
 
 	<header>
 
-		<div class="mx-auto container">
-			<div class="lg:flex lg:justify-between lg:items-center border-b py-6">
-				<div class="flex justify-between items-center">
+		<div class="container mx-auto">
+			<div class="py-6 border-b lg:flex lg:justify-between lg:items-center">
+				<div class="flex items-center justify-between">
 					<div>
 						<?php if ( has_custom_logo() ) { ?>
                             <?php the_custom_logo(); ?>
 						<?php } else { ?>
-							<a href="<?php echo get_bloginfo( 'url' ); ?>" class="font-extrabold text-lg uppercase">
+							<a href="<?php echo get_bloginfo( 'url' ); ?>" class="text-lg font-extrabold uppercase">
 								<?php echo get_bloginfo( 'name' ); ?>
 							</a>
 
@@ -68,19 +68,19 @@
 		</div>
 	</header>
 
-	<div id="content" class="site-content flex-grow">
+	<div id="content" class="flex-grow site-content">
 
 		<?php if ( is_front_page() ) { ?>
 			<!-- Start introduction -->
-			<div class="container mx-auto my-12 border-b pb-12">
-				<h1 class="font-bold text-lg text-secondary uppercase">TailPress</h1>
-				<h2 class="text-3xl lg:text-7xl tracking-tight font-extrabold my-4">Rapidly build your WordPress theme
-					with <a href="https://tailwindcss.com" class="text-primary">Tailwind CSS</a>.</h2>
-				<p class="max-w-screen-lg text-gray-700 text-lg font-medium mb-10">TailPress is your go-to starting
+			<div class="container pb-12 mx-auto my-12 border-b">
+				<h1 class="text-lg font-bold text-orange-500 uppercase">TailPress</h1>
+				<h2 class="my-4 text-3xl font-extrabold tracking-tight lg:text-7xl">Rapidly build your WordPress theme
+					with <a href="https://tailwindcss.com" class="text-yellow-400">Tailwind CSS</a>.</h2>
+				<p class="max-w-screen-lg mb-10 text-lg font-medium text-gray-700">TailPress is your go-to starting
 					point for developing WordPress themes with TailwindCSS and comes with basic block-editor support out
 					of the box.</p>
 				<a href="https://github.com/jeffreyvr/tailpress"
-					class="w-full sm:w-auto flex-none bg-gray-900 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">View
+					class="flex-none w-full px-6 py-3 text-lg font-semibold leading-6 text-white transition-colors duration-200 bg-gray-900 border border-transparent sm:w-auto rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none">View
 					on Github</a>
 			</div>
 			<!-- End introduction -->

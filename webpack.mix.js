@@ -1,3 +1,4 @@
+const { browserSync } = require('laravel-mix');
 let mix = require('laravel-mix');
 let path = require('path');
 
@@ -24,6 +25,12 @@ const homedir = require('os').homedir();
 // The mix script:
 mix.browserSync({
     watch: true,
+    files: [
+        'resources/**/*',
+        'template-parts/*',
+        'js/*.js',
+        '*.php'
+    ],
     proxy: 'https://' + domain,
     host: domain,
     open: 'external',
