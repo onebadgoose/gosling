@@ -42,7 +42,9 @@ function goose_theme_enqueue_scripts() {
 	$theme = wp_get_theme();
 
 	wp_enqueue_style( 'tailpress', goose_theme_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) );
-	wp_enqueue_script( 'tailpress', goose_theme_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) );
+	wp_enqueue_script( 'tailpress', goose_theme_asset( 'js/app.js' ), array('jquery'), $theme->get( 'Version' ), true );
+
+	
 }
 
 add_action( 'wp_enqueue_scripts', 'goose_theme_enqueue_scripts' );
