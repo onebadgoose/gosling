@@ -12,7 +12,7 @@
 
 <body <?php body_class('bg-white text-gray-900 antialiased'); ?>>
 
-	<?php do_action('goose_theme_site_before'); ?>
+	<main class="transition-fade" id="swup">
 
 	<div id="page" class="flex flex-col min-h-screen">
 

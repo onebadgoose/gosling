@@ -7,7 +7,7 @@
 
 <?php do_action( 'goose_theme_content_after' ); ?>
 
-<footer id="colophon" class="site-footer bg-gray-50 py-12" role="contentinfo">
+<footer id="colophon" class="py-12 site-footer bg-gray-50" role="contentinfo">
 	<?php do_action( 'goose_theme_footer' ); ?>
 
 	<div class="container mx-auto text-center text-gray-500">
@@ -18,6 +18,8 @@
 </div>
 
 <?php wp_footer(); ?>
+
+</main>
 
 </body>
 </html>
