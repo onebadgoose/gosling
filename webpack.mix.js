@@ -19,10 +19,12 @@ mix.postCss("resources/css/app.css", "css");
 
 mix.postCss("resources/css/editor-style.css", "css");
 
+// Edit this for your particular localhost environment url
 const domain = 'tailwind.test'; // <= EDIT THIS
 const homedir = require('os').homedir();
 
 // The mix script:
+
 mix.browserSync({
     watch: true,
     files: [
